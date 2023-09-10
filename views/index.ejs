@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="list-title box">
+        <h1><%= listTitle %></h1>
+    </div>
+
+    <div class="box">
+        <% if (locals.currentTasks) {%>
+        <% currentTasks.forEach(item => {%>
+        <form action="/delete" method="post">
+            <div class="item">
+
+              <input name="checkbox" class="item-box" value="<%=item._id%>" onchange="this.form.submit()" type="checkbox">
+                <label class="item-text"><%= item.task %></label>
+            </div>
+            <input type="hidden" name="listName" value="<%= listTitle %>">
+        </form>
+        <%}); }%>
+
+         <!-- Submit New Item -->
+        <form class="item" action="/newItem" method="post">
+            <input 
+                class="new-text" 
+                type="text" autofocus 
+                autocomplete="off"
+                name="newItem" 
+                placeholder="New Task"
+            />
+            <button class="new-button" type="submit" name="listName" value="<%= listTitle %>">+</button>
+        </form>
+    </div>
+</body>
+<%- include('partials/footer.ejs') %>

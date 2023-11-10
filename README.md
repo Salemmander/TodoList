@@ -1,7 +1,5 @@
 # TodoList
 
-[Test it out!](https://todolist-rn4b.onrender.com/)
-
 ## Features
 
 - Developed a dynamic and user-friendly full stack to-do list web application utilizing HTML, CSS, EJS, Node.js,
